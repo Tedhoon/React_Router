@@ -43,10 +43,11 @@ $ yarn add cross-env --dev
 <li>location : 이 객체는 현재 경로에 대한 정보를 지니고 있고  URL 쿼리 (/about?foo=bar 형식) 정보를 가지고 있음
 <li>match : 어떤 라우트와 매칭되었는지에 대한 정보를 가지고 있고 params (/about/:name 형식)정보를 가지고 있음
 
-`url 쿼리 사용법`
+`url 쿼리를 다루기 위한 라이브러리`
 ```
 $ yarn add query-string
 ```
+
 
 
 ---
