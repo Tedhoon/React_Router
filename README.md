@@ -43,14 +43,66 @@ $ yarn add cross-env --dev
 <li>location : 이 객체는 현재 경로에 대한 정보를 지니고 있고  URL 쿼리 (/about?foo=bar 형식) 정보를 가지고 있음
 <li>match : 어떤 라우트와 매칭되었는지에 대한 정보를 가지고 있고 params (/about/:name 형식)정보를 가지고 있음
 
-`url 쿼리를 다루기 위한 라이브러리`
+'url 쿼리'를 다루기 위한 라이브러리
 ```
 $ yarn add query-string
 ```
-
-
-
 ---
+
+<h1>라우트 이동하기</h1>
+
+`<a href...>foo</a>`를 이용하면 새로고침이 되므로 권장하지 않음 => `link`컴포넌트를 사용한다.
+<li>Menu.js 컴포넌트를 만들어서 루트 앱에 적용시키면된다.
+
+```javascript
+//Menu.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const Menu = () => {
+    return (
+        <div>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/about/foo">About Foo</Link></li>
+            </ul>
+            <hr/>
+        </div>
+    );
+};
+
+export default Menu;
+```
+```javascript
+//style을 주고싶으면 Navelink를 쓴다.
+//활성화 되었을 시 스타일 : activeStyle , class지정은 activeClassName
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+const Menu = () => {
+    const activeStyle = {
+        color: 'green',
+        fontSize: '2rem'
+    };
+
+    return (
+        <div>
+            <ul>
+                <li><NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink></li>
+                <li><NavLink exact to="/about" activeStyle={activeStyle}>About</NavLink></li>
+                <li><NavLink to="/about/foo" activeStyle={activeStyle}>About Foo</NavLink></li>
+            </ul>
+            <hr/>
+        </div>
+    );
+};
+
+export default Menu;
+```
+
+
+
 
 
 
